@@ -1,0 +1,825 @@
+#Nav{
+    position: fixed;
+    width: 100%;
+    padding: 25px 0px;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: transparent;
+    transition-duration: .5s;
+}
+#Nav.active{
+    background-color: #1F1F1F;
+}
+#Nav.scrollUp{
+transform: translateY(-100%);
+}
+#Nav.scrollDown {
+transform: translateY(0);
+}
+#Nav .logo{
+    width: 150px;
+}
+#Nav ul li a{
+    color:  white;
+    text-decoration: none;
+    font-size: 18px
+}
+#Nav ul li a:hover{
+    color: var(--main-color);
+}
+#Nav .navButton {
+    width: 40px;
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    cursor: pointer;
+}
+#Nav .navButton span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    animation-name: navButtonAnimate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: .5s;
+
+}
+#Nav .navButton span:nth-of-type(1){
+
+}
+#Nav .navButton span:nth-of-type(2){
+    animation-delay: .2s;
+}
+#Nav .navButton span:nth-of-type(3){
+    animation-delay: .5s;
+}
+.sideBar::-webkit-scrollbar { /* used for chrome and edge browsers ,this is a selector that selects the scroller of the sidebar*/
+     display: none;
+} 
+#Home .popup.active {
+    display: block;
+}
+.popup .sideBar{
+    z-index: 100;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 400px;
+    height: 100%;
+    background-color: black;
+    background-image:url("../images/bg.png");
+    transform: translateX(-100%);
+    transition-duration: .5s;
+    opacity: 0;
+    scrollbar-width: none; /* to remove the scrollbar*/
+}
+.popup.show .sideBar {
+    transform: translateX(0%);
+    transition-delay: .3s;
+    opacity: 1;
+}
+.popup .sideBar .item {
+    width: 65%;
+    margin: auto;
+}
+.popup .sideBar .item .sideBarLogo {
+    width: 200px;
+    margin: auto;
+}
+.popup .sideBar .item .sideBarImage {
+    width: 150px;
+    margin: auto;
+}
+.popup .sideBar .item ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin: auto;
+}
+.popup .sideBar .item ul li:first-child {
+    border-top: 1px solid var(--p-color);
+}
+.popup .sideBar .item ul li {
+    padding: 10px 0px;
+    width: 100%;
+    border-bottom: 1px solid var(--p-color);
+    text-align: start;
+}
+.popup .sideBar .item ul li a {
+cursor: pointer;
+transition-duration: .5s;
+display: flex;
+justify-content: start;
+align-items: center;
+text-decoration: none;
+color: white;
+}
+.popup .sideBar .item ul li a.active{
+    color: var(--main-color);
+}
+.popup .sideBar .item ul li a:hover {
+    color: var(--main-color);
+} 
+.popup .sideBar .item .bookingRequest {
+    font-size: 16px;
+}
+.popup .sideBar .item h3 {
+    font-size: 50px;
+}
+.popup .sideBar .item p.information {
+    color: var(--p-color);
+}
+.popup .sideBar .item span.underline {
+    font-size: 30px;
+}
+
+#Home .carouselItem
+{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition-duration: .3s;
+}
+#Home .carouselItem.active{
+    z-index: 3;
+}
+#Home .carouselItem.hide {
+    transform: scale(1.5);
+}
+#Home .carouselItem.hide::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    opacity: .3;
+}
+ #Home .carouselItem:nth-of-type(1) {
+    background-image: url("../images/slider-1.jpg");
+}
+#Home .carouselItem:nth-of-type(2) {
+    background-image: url("../images/slider-2.jpg");
+}   
+#Home .carouselItem:nth-of-type(3) {
+    background-image: url("../images/slider-3.jpg");
+
+}
+#Home .carouselItem .content>*{
+    transform: translateY(85px);
+    transition-duration: 1s;
+    opacity: 0;
+}
+#Home .carouselItem.active .content>*{
+    transform: translateY(0);
+    opacity: 1;
+}
+#Home .carouselItem.active .content>:nth-child(2){
+transition-delay: .2s;
+}
+#Home .carouselItem.active .content>:nth-child(3){
+transition-delay: .4s;
+}
+
+#Home .carouselItem .content h2 {
+    font-size: 90px;
+}
+#Home .carouselItem .content p {
+    font-size: 18px;
+}
+
+#Home .bookTable {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    cursor: pointer;
+}
+#Home .bookTable .box::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    animation-name: bookAnimation;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#Home .bookTable .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-color);
+    width: 100px;
+    height: 100px;
+    padding: 20px 0px;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+#Home .bookTable .box .bookImage {
+    width: 40px;
+}
+#Home .bookTable .box span{
+    text-wrap: wrap;
+    color: black;
+    font-size: 12px;
+    display: block;
+}
+#Home .carouselInner .carousel_buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+    right: 20px;
+    bottom: 20px;
+    column-gap: 10px;
+}
+#Home .carouselInner .carousel_buttons span {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    cursor: pointer;
+}
+#Home .carouselInner .carousel_buttons span.active {
+    background-color: var(--main-color);
+}
+#AboutUs  .underTitle{
+    width: 400px;
+    margin: auto;
+}
+#AboutUs .box {
+    position: relative;
+    width: 300px;
+    margin: auto;
+    height: 410px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+#AboutUs .content .column1,
+#AboutUs .content .column3
+ {
+transform: translateY(-80px);
+}
+
+#AboutUs .box .pattern{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+width: 200px;
+height: 100%;
+transition-duration: 1s;
+}
+#AboutUs .box .imageBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+position: absolute;
+width: 300px;
+height: 300px;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+z-index: 3;
+background-color: transparent;
+}
+#AboutUs .box:hover .pattern {
+ transform: translateX(-50%) rotateY(180deg);
+}
+#AboutUs .box::before {
+content: "";
+width: 100px;
+height: 150%;
+position: absolute;
+z-index: 5;
+top:-100px;
+left: -250px;
+display: block;
+transform: rotate(30deg);
+
+background: linear-gradient(to right, transparent, rgba(255, 255, 255, .5));
+}
+#AboutUs .box:hover::before{
+left: 550px;
+transition-duration: 1s;
+}
+/* our Story*/
+#OurStory {
+    background-color: #1F1F1F;
+}
+#OurStory .part1 .content {
+    width: 500px;
+    margin: auto;
+}
+#OurStory .part1 span.underline {
+    font-size: 25px;
+}
+#OurStory .part2 .content{
+    background-image: url("../images/image-1.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}
+#OurStory .part2 .bottomLeftImage {
+    background-image: url("../images/pattern-8.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 250px;
+    height: 300px;
+}
+#OurStory .part2 .TopRightImage{
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%,50%);
+}
+#OurStory .part2 .TopRightImage img.rotating {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-name: rotatingBadge;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* specialDish */
+
+#SpecialDish .part1 {
+    background-image: url("../images/special-dish.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+ #SpecialDish .part2  {
+    padding: 120px 0px;
+} 
+
+#SpecialDish .part2 .content {
+    width: 550px;
+    position: relative;
+}
+#SpecialDish .part2 .content .badgeImage{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    left:-50px;
+    animation-name: UPAndDown;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#SpecialDish .part2 .content p {
+width: 400px;
+line-height: 1.8;
+}
+#SpecialDish .part2 .content del {
+    color: var(--p-color);
+    font-size: 18px;
+}
+
+#SpecialDish .part2 .content p span {
+    font-size: 25px;
+    color: var(--main-color);
+}
+/* #Menu .layoutMenuBackground {
+    background-image: url("../images/bg-5.png");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation-name: MenuBackgroundAnimation;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+} */
+#Menu {
+    background-color: #171819;
+    position: relative;
+    overflow: hidden;
+}
+#Menu .menuBar {
+    border-top: 1px solid var(--p-color);
+    border-bottom: 1px solid var(--p-color);
+    overflow: auto; 
+}
+#Menu .menuBar li {
+    color: white;
+    transition-duration: .5s;
+    font-size: 20px;
+}
+#Menu .menuBar li.active{
+    color: var(--main-color);
+}
+#Menu .search {
+width: 350px;
+margin: auto;
+background-color: transparent;
+border: 1px solid var(--main-color);
+}
+#Menu .search label {
+    background-color: transparent;
+    color: var(--main-color);
+}
+#Menu .search input {
+     background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0px;
+    color: var(--p-color);
+}
+#Menu .search input::placeholder {
+    color: var(--p-color);
+}
+ #Menu .menuItems .dish {
+    display: none;
+    opacity: 0;
+    transform:translate(-40px, -30px);
+    transition-duration: 1s;
+ }
+ #Menu .menuItems .part1 .dish:nth-of-type(2){
+    transition-delay: .3s;
+ }
+  #Menu .menuItems .part1 .dish:nth-of-type(3){
+    transition-delay: .6s;
+ }
+  #Menu .menuItems .part2 .dish:nth-of-type(1){
+    transition-delay: .9s;
+ }
+  #Menu .menuItems .part2 .dish:nth-of-type(2){
+    transition-delay: 1.2s;
+ }
+  #Menu .menuItems .part2 .dish:nth-of-type(3){
+    transition-delay: 1.5s;
+ }
+  #Menu .menuItems .dish.active {
+    display: block;
+ }
+   #Menu .menuItems .dish.show {
+    transform: translate(0);
+    opacity: 1;
+ }
+#Menu .menuItems .firstDishPart {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: auto;
+}
+#Menu .menuItems .dish .firstDishPart .imageDish {
+    transition-duration: .5s;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+}
+#Menu .menuItems .dish:hover .imageDish {
+    transform: scale(1.2);
+    position: relative;
+}
+#Menu .menuItems .dish .imageDish .layout{
+position: absolute;
+top: 50%;
+left: 50%;
+width: 100%;
+height: 100%;
+transform: translate(-50%,-50%);
+border-radius: 10px;
+background-color: rgba(228, 197, 144, 0);
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#Menu .menuItems .dish:hover .imageDish .layout{
+    background-color: rgba(228, 197, 144, .5);
+    transition-duration: .5s;
+}
+#Menu .menuItems .dish .imageDish .layout i {
+    opacity: 0;
+    color: black;
+    transform: rotate(0) scale(0);
+    font-size: 20px;
+    cursor: pointer;
+}
+#Menu .menuItems .dish:hover .imageDish .layout i {
+    opacity: 1;
+    transform: rotate(180deg);
+    transition-duration: .5s;
+    transform: rotate(180deg) scale(1);
+}
+#Menu .menuItems .detailsRow .dishName {
+    color: var(--main-color);
+    text-wrap-mode: nowrap;
+}
+#Menu .menuItems .detailsRow .twoLines {
+background-color:transparent;
+width: 100%;
+height: 5px;
+border-top: 1px solid var(--p-color);
+border-bottom: 1px solid var(--p-color);
+}
+#Menu .menuItems .detailsRow .price {
+    color: var(--main-color);
+}
+#Menu .menuItems p.description {
+    color: var(--p-color);
+}
+#Menu .menuItems .separatingLine{
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+height: 100%;
+width: 1px;
+background-color: var(--p-color);
+padding: 0px;
+}
+
+.popup .box {
+    width: 600px;
+    background-color: #171819;
+    padding: 30px;
+    transform: translateY(-150%);
+    transition-duration: 1s;
+}
+.popup.show .box {
+    transform: translateY(0);
+}  
+.popup .box .exitIcon {
+    font-size: 20px;
+}
+.popup .box .imageContainer {
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+} 
+.popup .box .imageContainer .dishPrice {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    padding: 7px 15px;
+    border: 2px solid var(--main-color);
+    border-right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-color);
+    background-color: #171819;
+}
+.popup .box .imageContainer button {
+    background-color: #171819;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.popup .box .imageContainer button.next{
+    right: 20px;
+}
+.popup .box .imageContainer button.prev{
+    left: 20px;
+}
+.popup .box .imageContainer button i {
+    transform: rotate(-45deg);
+}
+.popup .box .paragraphCont {
+    color: var(--p-color);
+}
+.noMatchedPopup {
+    display: none;
+    width: 100%;
+}
+.noMatchedPopup.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.noMatchedPopup .box {
+    width: 300px;
+    background-color: #171819;
+}
+.noMatchedPopup .box .ContImg{
+width: 150px;
+height: 150px;
+margin: auto;
+}
+.noMatchedPopup .box p {
+    color: var(--p-color);
+}
+
+/* Our CHefs */
+#OurChefs .item {
+    margin: auto;
+    width: 350px;
+    overflow: hidden;
+}
+#OurChefs .item .head{
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+#OurChefs .item .head img {
+transition-duration: .8s;
+}
+#OurChefs .item:hover .head img {
+transform: rotate(2deg) scale(1.05);
+opacity: .7;
+}
+#OurChefs .item .head .layout {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 0%;
+    height: 0%;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    transition-duration: .8s;
+}
+#OurChefs .item:hover .head .layout{
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+} 
+#OurChefs .item .head .layout li {
+    opacity: 0;
+    background-color: black;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: .8s;
+    cursor: pointer;
+}
+#OurChefs .item:hover .head .layout li {
+    opacity: 1;
+}
+#OurChefs .item .head .layout li.facebook:hover  {
+background-color: #1877F2;
+}
+#OurChefs .item .head .layout li.twitter:hover {
+background-color: white;
+}
+#OurChefs .item .head .layout li.instagram:hover  {
+background-color: #E4405F;
+}
+#OurChefs .item .head .layout li.linkedIn:hover {
+background-color: #0A66C2;
+}
+#OurChefs .item:hover .head .layout li i {
+    transition-duration: .5s;
+}
+#OurChefs .item .head .layout li i.facebook {
+color: #1877F2;
+}
+#OurChefs .item .head .layout li i.twitter {
+color: white;
+}
+#OurChefs .item .head .layout li i.instagram {
+color: #E4405F;
+}
+#OurChefs .item .head .layout li i.linkedIn {
+color: #0A66C2;
+}
+#OurChefs .item .head .layout li:hover i.facebook {
+color: white;
+}
+#OurChefs .item .head .layout li:hover i.twitter {
+color: black;
+}
+#OurChefs .item .head .layout li:hover i.instagram {
+color: white;
+}
+#OurChefs .item .head .layout li:hover i.linkedIn {
+color: white;
+}
+#OurChefs .item .body p.chefTitle {
+    color: var(--main-color);
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+#OurChefs .item .body p {
+    color: var(--p-color);
+    font-size: 14px;
+}
+/* contanct Us */
+#ContactUs {
+    background-image: url("../images/contact-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+#ContactUs::before {
+content: "";
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+position: absolute;
+background-color: rgba(0, 0, 0, .5);
+
+}
+#ContactUs .formContainer {
+    position: relative;
+    width: 500px;
+    margin: auto;
+    background-color: #171819;
+    background-image: url("../images/bg.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#ContactUs .formContainer .LeftOfFormPattern {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 100%;
+    overflow: hidden;
+}
+#ContactUs .formContainer .RightOfFormPattern {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 100%;
+    overflow: hidden;
+}
+#ContactUs .formContainer p.information {
+color: var(--p-color);
+}
+#ContactUs .formContainer .spanBox {
+    position: relative;
+}
+#ContactUs .formContainer .spanBox i {
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+    color: var(--main-color);
+}
+#ContactUs .formContainer .inputBox input ,
+#ContactUs .formContainer textarea{
+background-color: transparent; 
+color: var(--p-color);
+border: 1px solid var(--p-color);
+padding: 9px 15px;
+resize: none;
+margin-bottom: 40px;
+}
+#ContactUs .formContainer .inputBox input:focus ,
+#ContactUs .formContainer textarea:focus{
+border: 1px solid white;
+box-shadow: none;
+}
+#ContactUs .formContainer .inputBox input::placeholder,
+#ContactUs .formContainer textarea::placeholder{
+    color: var(--p-color);
+}
+#ContactUs footer span{
+color: var(--main-color);
+}
+

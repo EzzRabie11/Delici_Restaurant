@@ -1,0 +1,184 @@
+html::-webkit-scrollbar {
+    width: 12px;
+}
+html::-webkit-scrollbar-thumb {
+    background-color:var(--main-color);
+    border-radius: 10px;
+    height: 5px;
+}
+html::-webkit-scrollbar-track {
+    background-color:#171819 ;
+}
+::selection {
+    background-color: var(--main-color);
+    color: black;
+}
+body{
+    scroll-behavior: smooth;
+    color: white;
+    background-color: black;
+    background-image:url("../images/bg.png");
+}
+
+:root{
+--main-color:rgb(228, 197, 144);
+--p-color:#A7A7A7;
+}
+p {
+    font-family: DM Sans, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Forum;
+}
+section {
+    padding: 100px 0px;
+}
+.title {
+color: var(--main-color);
+text-align: center;
+
+}
+.title h6 {
+    letter-spacing: 2px;
+}
+.title .titleImage {
+    width: 120px;
+}
+.globalButton {
+    padding: 11px 38px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: transparent;
+    border: 2px solid var(--main-color);
+}
+.globalButton::before,
+.globalButton::after{
+    content: "";
+    transition-duration: .5s;
+    width: 100%;
+    height: 50%;
+    left: 0;
+    background-color: var(--main-color);
+    position: absolute;
+}
+.globalButton::before {
+    top: -50%;
+}
+.globalButton::after {
+    bottom: -50%;
+}
+
+.globalButton:hover::before {
+    top: 0;
+}
+
+.globalButton:hover::after {
+    bottom: 0;
+}
+
+.globalButton span {
+    position: relative;
+    color: var(--main-color);
+    z-index: 2;
+    font-size: 16px;
+    letter-spacing: 1.4px;
+    transition-duration: .5s;
+}
+.globalButton:hover span{
+    color: black;
+}
+ .exitIcon {
+    position: absolute; /*  relative to the side bar that takes position absolute */
+    top: 20px;
+    right: 20px;
+    font-size: 23px;
+    margin-top: 0px;
+    cursor: pointer;
+    color: var(--main-color);
+}
+.rotatingSquare {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border: 2px solid var(--main-color);
+    animation-name: rotatingSquare;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+}
+.underline {
+    color: var(--main-color);
+    position: relative;
+    cursor: pointer;
+}
+.underline::before {
+    position: absolute;
+    bottom: -8px;
+    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 0%;
+    height: 5px;
+    background-color: transparent;
+    border-top: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+    transition-duration: .5s;
+}
+.underline:hover::before {
+    width: 100%; 
+}
+ .popup {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+    overflow: auto;
+    transition-duration: .5s;
+}
+.popup.active{
+    display: flex;
+}
+.popup.show {
+    background-color: rgba(228, 197, 144, .5);
+}
+/* .contentLoad {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentLoad span {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: transparent;
+    border:10px solid white;
+    border-top:10px solid black;
+    animation-name: rotaingDOMLOAD;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+}
+.contentLoad p {
+    font-size: 150px;
+    color: black;
+     animation-name: paragrahDOMCONTENT;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 3s;    
+} */
+ 
